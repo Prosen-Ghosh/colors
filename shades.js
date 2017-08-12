@@ -12,11 +12,11 @@ var generateShadesPage = function() {
            //console.log(value);
             html += '<div class="color-box" style="background-color:'+value+';">'+
             '<hr/>'+
-            '<h4 class="text-center color-name">'+key +'</h4>'+
-            '<p class="text-center color-code">'+ value +'</p>'+
+            '<h5 class="text-center color-name">'+key +'</h5>'+
+            '<p class="text-center color-code">HEX : '+ value +'</p>'+
             '</div>';
        }
-        id.html(html);     
+        id.html(html);    
     });
 };
 

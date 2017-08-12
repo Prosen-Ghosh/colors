@@ -18,12 +18,12 @@
 }
 
 hr {
-    margin-top: 125px;
+    margin-top: 140px;
     color: lightgray;
 }
 .navbar-center {
     position: absolute;
-    width: 85%;
+    width: 85vh;
     text-align: center;
     margin: auto;
     margin-top: 8px;
