@@ -15,7 +15,7 @@ $('#loginBtn').on('click',function(){
     var userName = $('#userName').val();
     var userPassword = $('#userPassword').val();
     if(isAdmin(userName,userPassword)){
-        window.location.href = window.location.origin + "/adminHome.html";
+        window.location.href = window.location.origin + "/colors/adminHome.html";
         console.log(window.location);
     }
     else {
