@@ -38,3 +38,15 @@ $(document).ready(function(){
        window.location.replace(window.location.origin + "/colors/index.html");
    }); 
 });
+
+$(document).ready(function(){
+   $('#submitColor').on('click',function(){
+       var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors');
+       var colorName = $('#colorName').val();
+       var colorCode = $('#colorCode').val();
+       var obj = {
+            'code' : colorCode
+       }
+       var newRef = ref.child(colorName).set(obj);
+   }); 
+});
