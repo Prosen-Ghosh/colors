@@ -3,7 +3,6 @@ var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Users');
 var isAdmin = function(userName,userPassword){
     var obj = {};
     ref.on('value', function(snap){
-        console.log(snap.val());
         obj = snap.val();
     });
 
@@ -16,5 +15,19 @@ $('#loginBtn').on('click',function(){
     var userPassword = $('#userPassword').val();
     if(isAdmin(userName,userPassword)){
         window.location.href = "http://www.google.com/";
+    }
+    else {
+        $('.loginError').html('<div class="alert alert-danger text-center" role="alert"><strong>Oops!</strong> User Name Or Password Is Not Correct.</div>');
+        setTimeout(function(){
+            $('.loginError').html('');
+        },3000);
+    }
+});
+
+$('.form-login').on('keydown',function(e){
+    var key = e.which;
+    if(key === 13){
+        $('#loginBtn').focus();
+        $('#loginBtn').click();
     }
 });
