@@ -13,7 +13,7 @@ var isAdmin = async function(userName,userPassword){
 $('#loginBtn').on('click',function(){
     var userName = $('#userName').val();
     var userPassword = $('#userPassword').val();
-    if(isAdmin(userName,userPassword)){
+    if(isAdmin(userName,userPassword) && (userName != '' && userPassword != '')){
         document.cookie = "username="+userName+";"
         window.location.replace(window.location.origin + "/colors/adminHome.html");
         
