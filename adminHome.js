@@ -15,23 +15,22 @@ var getCookie = function(cname) {
 }
 
 window.onload = function(e){ 
-    e.stopPropagation(true);
     var username = getCookie('username');
     console.log(username); 
     if(username == ''){
-        window.location.replace(window.location.origin + "/colors/");
+        window.location.replace(window.location.origin + "/colors/index.html");
     }
  }
 
-$(document).ready(function(e){
-    console.log("Cok : ",getCookie('username'));
-    e.stopPropagation(true);
-    var username = getCookie('username');
-    console.log(username); 
-    if(username == ''){
-        window.location.replace(window.location.origin + "/colors/inide.html");
-    }
-});
+//$(document).ready(function(e){
+//    console.log("Cok : ",getCookie('username'));
+//    e.stopPropagation(true);
+//    var username = getCookie('username');
+//    console.log(username); 
+//    if(username == ''){
+//        window.location.replace(window.location.origin + "/colors/inide.html");
+//    }
+//});
 
 $(document).ready(function(){
    $('#admin.html').on('click',function(){
