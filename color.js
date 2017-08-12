@@ -13,7 +13,7 @@ var generateIndexPage = function() {
                     html += '<div class="color-box" style="background-color:'+obj[o]+';">'+
                     '<hr/>'+
                     '<a href="shades.html#'+key+'"><h4 class="text-center color-name">'+key +'</h4></a>'+
-                    '<p class="text-center color-code">'+ obj[o] +'</p>'+
+                    '<p class="text-center color-code">HEX : '+ obj[o] +'</p>'+
                     '</div>';
                }
            }
