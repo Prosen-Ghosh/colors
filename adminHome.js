@@ -33,7 +33,7 @@ window.onload = function(e){
 //});
 
 $(document).ready(function(){
-   $('#admin.html').on('click',function(){
+   $('#login').on('click',function(){
        document.cookie = "username='';";
        window.location.replace(window.location.origin + "/colors/");
    }); 
