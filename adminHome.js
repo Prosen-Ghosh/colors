@@ -19,10 +19,23 @@ window.onload = function(e){
     var username = getCookie('username');
     console.log(username); 
     if(username == ''){
-        //window.location.replace(window.location.origin + "/colors/");
+        window.location.replace(window.location.origin + "/colors/");
     }
  }
 
- $(document).ready(function(){
-     console.log("Cok : ",getCookie('username'));
- })
+$(document).ready(function(e){
+    console.log("Cok : ",getCookie('username'));
+    e.stopPropagation(true);
+    var username = getCookie('username');
+    console.log(username); 
+    if(username == ''){
+        window.location.replace(window.location.origin + "/colors/inide.html");
+    }
+});
+
+$(document).ready(function(){
+   $('#admin.html').on('click',function(){
+       document.cookie = "username='';";
+       window.location.replace(window.location.origin + "/colors/");
+   }); 
+});
