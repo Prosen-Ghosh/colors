@@ -18,7 +18,7 @@ var generateIndexPage = function() {
                }
            }
        }
-        id.html(html);     
+       id.html(html);     
     });
 };
 
