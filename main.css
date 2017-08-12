@@ -1,0 +1,22 @@
+.color-box {
+    width: 200px;
+    height: 250px;
+    display: inline-block;
+    margin: 11px;
+    padding: 11px;
+    border: 1px solid #fafafa;
+    box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+    margin-bottom: 150px;
+}
+.color-name {
+    margin-top: 10px;
+    color: #fff;
+}
+.color-code {
+    margin-top: 10px;
+    color: #fff;
+}
+hr {
+    margin-top: 140px;
+    color: lightgray;
+}
