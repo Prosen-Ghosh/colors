@@ -6,7 +6,6 @@ var isAdmin = async function(userName,userPassword){
         obj = snap.val();
         console.log(obj);
     });
-    console.log("a");
     if(obj.username === userName && obj.password === userPassword)return true;
     return false;
 }
@@ -15,7 +14,9 @@ $('#loginBtn').on('click',function(){
     var userName = $('#userName').val();
     var userPassword = $('#userPassword').val();
     if(isAdmin(userName,userPassword)){
+        document.cookie = "username="+userName+";"
         window.location.replace(window.location.origin + "/colors/adminHome.html");
+        
     }
     else {
         $('.loginError').html('<div class="alert alert-danger text-center" role="alert"><strong>Oops!</strong> User Name Or Password Is Not Correct.</div>');
