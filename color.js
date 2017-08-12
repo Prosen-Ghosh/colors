@@ -1,4 +1,4 @@
-var ref = new Firebase('https://colors-a8c0c.firebaseio.com/');
+var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors');
 
 
 var generateIndexPage = function() {
