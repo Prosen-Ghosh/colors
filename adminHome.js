@@ -74,25 +74,17 @@ $(document).ready(function(){
 var getColorNames = async function(){
     var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors');
     var obj = {};
-    await ref.on('value',function(snap) {
+    ref.on('value',function(snap) {
         obj = snap.val();
         console.log('obj: ',obj);
     });
     console.log('After obj');
-    return obj;
+    return await obj;
 }
 $(document).ready(function(){
     $('#addNewColorShades').on('click',function(){
         var showInput = $('#showInput');
-        var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors');
-        var promise = Promise.resolve(ref.on('value',function(snap) {
-            obj = snap.val();
-            console.log('obj: ',obj);
-        }));
-        promise.then(function(val){
-            console.log('Promise val: ',val);
-        })
-        //var objects  = getColorNames();
+        var objects  = getColorNames();
         var options = '';
         for(var key in objects){
             options += '<option value="'+key+'">'+key+'</option>';
