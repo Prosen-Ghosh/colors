@@ -14,13 +14,13 @@ var getCookie = function(cname) {
     return "";
 }
 
-// window.onload = function(e){ 
-//     var username = getCookie('username');
-//     console.log(username); 
-//     if(username == ''){
-//         window.location.replace(window.location.origin + "/colors/index.html");
-//     }
-//  }
+window.onload = function(e){ 
+    var username = getCookie('username');
+    console.log(username); 
+    if(username == ''){
+        window.location.replace(window.location.origin + "/colors/index.html");
+    }
+ }
 
 //$(document).ready(function(e){
 //    console.log("Cok : ",getCookie('username'));
