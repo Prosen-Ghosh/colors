@@ -50,3 +50,23 @@ $(document).ready(function(){
        var newRef = ref.child(colorName).set(obj);
    }); 
 });
+
+$(document).ready(function(){
+    $('#addNewColor').on('click',function(){
+        var showInput = $('#showInput');
+        var html = `<div class="col-md-7">
+                        <div class="col-xs-7">
+                            <label for="Color Name">Color Name</label>
+                            <input class="form-control" id="colorName" type="text">
+                        </div>
+                        <div class="col-xs-7">
+                            <label for="Color Code">Color Code</label>
+                            <input class="form-control" id="colorCode" type="text">
+                        </div>
+                        <div class="col-xs-offset-4 col-xs-3" style="margin-top:20px;">
+                            <button id="submitColor" class="btn btn-primary form-control">Submit</button>
+                        </div>
+                    </div>`;
+        showInput.html(html);
+    });
+});
