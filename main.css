@@ -1,3 +1,15 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400);
+body {
+  background-color:#fff;
+  -webkit-font-smoothing: antialiased;
+  font: normal 14px Roboto,arial,sans-serif;
+}
+.color-box a {
+    text-decoration: none;
+}
+.color-box h5:hover,a:hover {
+    color: #7ACF7F;
+}
 .color-box {
     width: 200px;
     height: 250px;
@@ -6,20 +18,46 @@
     padding: 11px;
     border: 1px solid #fafafa;
     box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
-    margin-bottom: 150px;
+    margin-bottom: 60px;
+    position: relative;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1); 
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1); 
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1);
+    transition: all 200ms ease-in;
+    transform: scale(1);
+}
+.color-box:hover
+{
+    box-shadow: 0px 0px 150px #000000;
+    z-index: 2;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1.2);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1.2);   
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1.2);
+    transition: all 200ms ease-in;
+    transform: scale(1.2);
 }
 .color-name {
     margin-top: 10px;
-    color: #fff;
+    color: #363636;
+}
+.bg-color {
+    height: 140px;
+    margin-bottom: -80px;
 }
 .color-code {
     margin-top: 10px;
-    color: #fff;
+    color: #DA5454;
 }
 
 hr {
-    margin-top: 140px;
-    color: lightgray;
+    margin-top: 100px;
+    color: #797373;
 }
 .navbar-center {
     position: absolute;
