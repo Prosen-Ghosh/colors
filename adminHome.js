@@ -108,7 +108,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $('#submitColorShades').on('click',function(){
-        var colorName = $('#colorName').val();
+        var colorName = $('#colorName option:selected').val();
         console.log('colorName : ', colorName);
         var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors/'+colorName);
         var colorShadesName = $('#colorShadesName').val();
