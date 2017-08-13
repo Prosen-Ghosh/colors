@@ -51,7 +51,7 @@ $(document).ready(function(){
    }); 
 });
 
-$(document).ready(function(){
+$('#showInput').ready(function(){
     $('#addNewColor').on('click',function(){
         var showInput = $('#showInput');
         var html = `<div class="col-md-7">
@@ -106,7 +106,7 @@ $(document).ready(function(){
     });
 });
 
-$(document).ready(function(){
+$('#showInput').ready(function(){
     $('#submitColorShades').on('click',function(){
         console.log('hey');
         // var colorName = $('#colorName option:selected').val();
