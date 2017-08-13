@@ -108,10 +108,11 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $('#submitColorShades').on('click',function(){
-        var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors');
         var colorName = $('#colorName').val();
+        var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors/'+colorName);
         var colorShadesName = $('#colorShadesName').val();
         var colorShadesCode = $('#colorShadesCode').val();
-        var newRef = ref.child(colorName).child('shades').child(colorShadesName).set(colorShadesCode);
+        conosle.log('shades: ',ref.child('shades'));
+        var newRef = ref.child('shades').child(colorShadesName).set(colorShadesCode);
     });
 });
