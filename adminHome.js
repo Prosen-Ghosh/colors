@@ -46,7 +46,7 @@ var submitColor = function(){
     var obj = {
          'code' : colorCode
     }
-    
+
     ref.child(colorName).once('value',function(snapshot){
         var exists = (snapshot.val() !== null);
         if(!exists){
@@ -57,6 +57,7 @@ var submitColor = function(){
                                     <strong>Info!</strong> This Color Already Exist.
                                 </div>`);
         }
+        $('#addNewColor').click();
     });
 }
 
@@ -138,6 +139,7 @@ var submitColorShades = function(){
                                     <strong>Info!</strong> This Color Already Exist.
                                 </div>`);
         }
+        $("#addNewColorShades").click();
     })
     
 }
