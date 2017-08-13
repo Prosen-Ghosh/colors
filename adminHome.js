@@ -87,7 +87,7 @@ $(document).ready(function(){
         var objects  = {};
         var options = '';
         var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors');
-        await ref.on('value',function(snap) {
+        ref.on('value',function(snap) {
             objects = snap.val();
             for(var key in objects){
                 options += '<option value="'+key+'">'+key+'</option>';
