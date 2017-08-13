@@ -58,7 +58,7 @@
             <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>         
-                <li ><a href="#">Add New Color<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>        
+                <li ><a href="#" id="addNewColor">Add New Color<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>        
                 <li ><a href="#">Add Color Shades<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
               </ul>
             </div>
@@ -66,20 +66,8 @@
         </nav>
         </div>
         <div class="container" style="float:right;">
-            <div class="row">
-                <div class="col-md-7">
-                    <div class="col-xs-7">
-                        <label for="Color Name">Color Name</label>
-                        <input class="form-control" id="colorName" type="text">
-                    </div>
-                    <div class="col-xs-7">
-                        <label for="Color Code">Color Code</label>
-                        <input class="form-control" id="colorCode" type="text">
-                    </div>
-                    <div class="col-xs-offset-4 col-xs-3" style="margin-top:20px;">
-                        <button id="submitColor" class="btn btn-primary form-control">Submit</button>
-                    </div>
-                </div>
+            <div class="row" id="showInput">
+                
             </div>
         </div>
     </body>
