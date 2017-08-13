@@ -73,6 +73,7 @@ $(document).ready(function(){
 
 var getColorName = async function(){
     var obj = {};
+    var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors');
     await ref.on('value', function(snap) {
         obj = snap.val();
     });
@@ -82,7 +83,6 @@ var getColorName = async function(){
 $(document).ready(function(){
     $('#addNewColorShades').on('click',function(){
         var showInput = $('#showInput');
-        var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors');
         var options = '';
         objects = getColorName();
         console.log('objects', objects);
