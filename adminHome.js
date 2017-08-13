@@ -71,18 +71,23 @@ $(document).ready(function(){
     });
 });
 
+var getColorNames = async function(){
+    var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors');
+    var obj = {};
+    await ref.on('value',function(snap) {
+        obj = snap.val();
+    });
+    return obj;
+}
 $(document).ready(function(){
     $('#addNewColorShades').on('click',async function(){
         var showInput = $('#showInput');
-        var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors');
+        var objects  = await getColorNames();
         var options = '';
-        ref.on('value', await function(snap) {
-            objects = snap.val();
-            for(var key in objects){
-                options += '<option value="'+key+'">'+key+'</option>';
-                console.log('key : ',key);
-            }
-        });
+        for(var key in objects){
+            options += '<option value="'+key+'">'+key+'</option>';
+            console.log('key : ',key);
+        }
         console.log("After Key");
         var html = `<div class="col-md-7">
                         <div class="col-xs-7">
