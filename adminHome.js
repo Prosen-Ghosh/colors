@@ -74,7 +74,7 @@ $(document).ready(function(){
 var getColorNames = async function(){
     var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors');
     var obj = {};
-    ref.on('value',function(snap) {
+    await ref.on('value',function(snap) {
         obj = snap.val();
         console.log('obj: ',obj);
     });
