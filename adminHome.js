@@ -74,21 +74,15 @@ $(document).ready(function(){
 var getColorNames = async function(){
     var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors');
     var obj = {};
-    await ref.on('value',function(snap) {
-        obj = snap.val();
-        console.log('obj: ',obj);
-    });
+    var snap = await ref.once('value');
     console.log('After obj');
-    return await obj;
+    return await snap.val();
 }
 $(document).ready(function(){
     $('#addNewColorShades').on('click',function(){
         var showInput = $('#showInput');
         var objects  = {};
-        getColorNames().then(val => {
-            objects = val;
-            console.log('objects',objects);
-        });
+        var objects = getColorNames();
         var options = '';
         for(var key in objects){
             options += '<option value="'+key+'">'+key+'</option>';
