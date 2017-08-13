@@ -58,7 +58,6 @@ var submitColor = function(){
                                 </div>`);
         }
         $('#addNewColor').click();
-        $('#colorCode').val('#');
     });
 }
 
@@ -72,7 +71,7 @@ $(document).ready(function(){
                         </div>
                         <div class="col-xs-7">
                             <label for="Color Code">Color Code</label>
-                            <input class="form-control" id="colorCode" type="text">
+                            <input class="form-control" id="colorCode" type="text" value="#">
                         </div>
                         <div class="col-xs-offset-4 col-xs-3" style="margin-top:20px;">
                             <button id="submitColor" onclick="submitColor()" class="btn btn-primary form-control">Submit</button>
@@ -109,7 +108,7 @@ $(document).ready(function(){
                             </div>
                             <div class="col-xs-7">
                                 <label for="Color Code">Color Shades Code</label>
-                                <input class="form-control" id="colorShadesCode" type="text">
+                                <input class="form-control" id="colorShadesCode" type="text" value="#">
                             </div>
                             <div class="col-xs-offset-4 col-xs-3" style="margin-top:20px;">
                                 <button id="submitColorShades" onclick="submitColorShades()" class="btn btn-primary form-control">Submit</button>
@@ -139,7 +138,6 @@ var submitColorShades = function(){
                                 </div>`);
         }
         $("#addNewColorShades").click();
-        $('#colorShadesName').val('#');
     })
     
 }
