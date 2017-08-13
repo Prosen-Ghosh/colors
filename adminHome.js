@@ -71,18 +71,25 @@ $(document).ready(function(){
     });
 });
 
+var getColorName = async function(){
+    var obj = {};
+    await ref.on('value', function(snap) {
+        obj = snap.val();
+    });
+    return obj;
+}
+
 $(document).ready(function(){
     $('#addNewColorShades').on('click',function(){
         var showInput = $('#showInput');
         var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors');
         var options = '';
-        ref.on('value', function(snap) {
-            objects = snap.val();
-            for(var key in objects){
-                options += '<option value="'+key+'">'+key+'</option>';
-                console.log('key : ',key);
-            }
-        });
+        objects = getColorName();
+        console.log('objects', objects);
+        for(var key in objects){
+            options += '<option value="'+key+'">'+key+'</option>';
+            console.log('key : ',key);
+        }
 
         var html = `<div class="col-md-7">
                         <div class="col-xs-7">
