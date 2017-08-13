@@ -84,7 +84,11 @@ var getColorNames = async function(){
 $(document).ready(function(){
     $('#addNewColorShades').on('click',function(){
         var showInput = $('#showInput');
-        var objects  = getColorNames();
+        var objects  = {};
+        getColorNames().then(val => {
+            objects = val;
+            console.log('objects',objects);
+        });
         var options = '';
         for(var key in objects){
             options += '<option value="'+key+'">'+key+'</option>';
