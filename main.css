@@ -11,10 +11,8 @@ body {
     color: #7ACF7F;
 }
 .color-box {
-    width: 200px;
-    height: 250px;
     display: inline-block;
-    margin: 11px;
+    margin: 15px;
     padding: 11px;
     border: 1px solid #fafafa;
     box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);

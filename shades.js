@@ -10,7 +10,7 @@ var generateShadesPage = function() {
        for(var key in objects){
            var value = objects[key];
            //console.log(value);
-            html += '<div class="color-box">'+
+            html += '<div class="col-md-3 col-xs-10 color-box">'+
             '<div class="bg-color" style="background-color:'+value+';"></div>'+
             '<hr/>'+
             '<a href="shades.html#'+key+'"><h5 class="text-center color-name"><em>'+key +'</em></h5></a>'+

@@ -10,7 +10,7 @@ var generateIndexPage = function() {
            var obj = objects[key];
            for(var o in obj){
                if(o === 'code'){
-                    html += '<div class="color-box">'+
+                    html += '<div class="col-md-3 col-xs-10 color-box">'+
                     '<div class="bg-color" style="background-color:'+obj[o]+';"></div>'+
                     '<hr/>'+
                     '<a href="shades.html#'+key+'"><h5 class="text-center color-name">'+key +'</h5></a>'+
