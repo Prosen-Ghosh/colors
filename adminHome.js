@@ -76,13 +76,15 @@ var getColorNames = async function(){
     var obj = {};
     await ref.on('value',function(snap) {
         obj = snap.val();
+        console.log('obj: ',obj);
     });
+    console.log('After obj');
     return obj;
 }
 $(document).ready(function(){
-    $('#addNewColorShades').on('click',async function(){
+    $('#addNewColorShades').on('click',function(){
         var showInput = $('#showInput');
-        var objects  = await getColorNames();
+        var objects  = getColorNames();
         var options = '';
         for(var key in objects){
             options += '<option value="'+key+'">'+key+'</option>';
