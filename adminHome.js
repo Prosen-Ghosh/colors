@@ -85,7 +85,7 @@ $(document).ready(function(){
     $('#addNewColorShades').on('click',function(){
         var showInput = $('#showInput');
         var options = '';
-        objects = await getColorName();
+        objects = getColorName();
         console.log('objects', objects);
         for(var key in objects){
             options += '<option value="'+key+'">'+key+'</option>';
