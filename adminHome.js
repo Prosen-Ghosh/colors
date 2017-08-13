@@ -83,7 +83,7 @@ $(document).ready(function(){
                 console.log('key : ',key);
             }
         });
-
+        conosle.log("After Key");
         var html = `<div class="col-md-7">
                         <div class="col-xs-7">
                             <label for="Color Name">Color Name</label>
