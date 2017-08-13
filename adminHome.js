@@ -84,6 +84,7 @@ var getColorNames = async function(){
 $(document).ready(function(){
     $('#addNewColorShades').on('click',function(){
         var showInput = $('#showInput');
+        var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors');
         var promise = Promise.resolve(ref.on('value',function(snap) {
             obj = snap.val();
             console.log('obj: ',obj);
