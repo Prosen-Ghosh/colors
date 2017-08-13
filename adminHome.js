@@ -84,7 +84,14 @@ var getColorNames = async function(){
 $(document).ready(function(){
     $('#addNewColorShades').on('click',function(){
         var showInput = $('#showInput');
-        var objects  = getColorNames();
+        var promise = Promise.resolve(ref.on('value',function(snap) {
+            obj = snap.val();
+            console.log('obj: ',obj);
+        }));
+        promise.then(function(val){
+            console.log('Promise val: ',val);
+        })
+        //var objects  = getColorNames();
         var options = '';
         for(var key in objects){
             options += '<option value="'+key+'">'+key+'</option>';
