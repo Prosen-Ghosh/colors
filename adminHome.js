@@ -58,6 +58,7 @@ var submitColor = function(){
                                 </div>`);
         }
         $('#addNewColor').click();
+        $('#colorCode').val('#');
     });
 }
 
@@ -123,9 +124,7 @@ $(document).ready(function(){
 });
 
 var submitColorShades = function(){
-    console.log('hey');
     var colorName = $('#colorName option:selected').val();
-    console.log('colorName : ', colorName);
     var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors/'+colorName);
     var colorShadesName = $('#colorShadesName').val();
     ref.child('shades').child(colorShadesName).once('value',function(snapshot){
@@ -140,6 +139,7 @@ var submitColorShades = function(){
                                 </div>`);
         }
         $("#addNewColorShades").click();
+        $('#colorShadesName').val('#');
     })
     
 }
