@@ -109,12 +109,12 @@ $(document).ready(function(){
 $(document).ready(function(){
     $('#submitColorShades').on('click',function(){
         console.log('hey');
-        var colorName = $('#colorName option:selected').val();
-        console.log('colorName : ', colorName);
-        var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors/'+colorName);
-        var colorShadesName = $('#colorShadesName').val();
-        var colorShadesCode = $('#colorShadesCode').val();
-        conosle.log('shades: ',ref.child('shades'));
-        var newRef = ref.child('shades').child(colorShadesName).set(colorShadesCode);
+        // var colorName = $('#colorName option:selected').val();
+        // console.log('colorName : ', colorName);
+        // var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors/'+colorName);
+        // var colorShadesName = $('#colorShadesName').val();
+        // var colorShadesCode = $('#colorShadesCode').val();
+        // conosle.log('shades: ',ref.child('shades'));
+        // var newRef = ref.child('shades').child(colorShadesName).set(colorShadesCode);
     });
 });
