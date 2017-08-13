@@ -10,10 +10,11 @@ var generateShadesPage = function() {
        for(var key in objects){
            var value = objects[key];
            //console.log(value);
-            html += '<div class="color-box" style="background-color:'+value+';">'+
+            html += '<div class="color-box">'+
+            '<div class="bg-color" style="background-color:'+value+';"></div>'+
             '<hr/>'+
-            '<a href="shades.html#'+key+'"><h5 class="text-center color-name">'+key +'</h5></a>'+
-            '<p class="text-center color-code">HEX : '+ value +'</p>'+
+            '<a href="shades.html#'+key+'"><h5 class="text-center color-name"><em>'+key +'</em></h5></a>'+
+            '<p class="text-center color-code"><b>HEX : </b>'+ value +'</p>'+
             '</div>';
        }
         id.html(html);    
