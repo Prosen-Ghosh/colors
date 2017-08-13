@@ -6,7 +6,6 @@ body {
 }
 
 .container {
-    padding: 25px;
     position: fixed;
 }
 
@@ -43,4 +42,14 @@ h4 {
 
 .loginError {
     margin-top: 30px;
+}
+
+/*For Mobile*/
+@media only screen and (max-width: 500px) {
+    .login-box {
+        margin-top:60px;
+    }
+    .loginError {
+        margin-top: 25px;
+    }
 }
