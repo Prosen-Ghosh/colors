@@ -78,8 +78,9 @@ $(document).ready(function(){
         var options = '';
         ref.on('value', function(snap) {
             objects = snap.val();
-            for(key in objects){
+            for(var key in objects){
                 options += '<option value="'+key+'">'+key+'</option>';
+                console.log('key : ',key);
             }
         });
 
