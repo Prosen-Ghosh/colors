@@ -39,19 +39,17 @@ $(document).ready(function(){
    }); 
 });
 
-$(document).ready(function(){
-   $('#submitColor').on('click',function(){
-       var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors');
-       var colorName = $('#colorName').val();
-       var colorCode = $('#colorCode').val();
-       var obj = {
-            'code' : colorCode
-       }
-       var newRef = ref.child(colorName).set(obj);
-   }); 
-});
+var submitColor = function(){
+    var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors');
+    var colorName = $('#colorName').val();
+    var colorCode = $('#colorCode').val();
+    var obj = {
+         'code' : colorCode
+    }
+    var newRef = ref.child(colorName).set(obj);
+}
 
-$('#showInput').ready(function(){
+$(document).ready(function(){
     $('#addNewColor').on('click',function(){
         var showInput = $('#showInput');
         var html = `<div class="col-md-7">
@@ -64,7 +62,7 @@ $('#showInput').ready(function(){
                             <input class="form-control" id="colorCode" type="text">
                         </div>
                         <div class="col-xs-offset-4 col-xs-3" style="margin-top:20px;">
-                            <button id="submitColor" class="btn btn-primary form-control">Submit</button>
+                            <button id="submitColor" onclick="submitColor()" class="btn btn-primary form-control">Submit</button>
                         </div>
                     </div>`;
         showInput.html(html);
@@ -98,7 +96,7 @@ $(document).ready(function(){
                                 <input class="form-control" id="colorShadesCode" type="text">
                             </div>
                             <div class="col-xs-offset-4 col-xs-3" style="margin-top:20px;">
-                                <button id="submitColorShades" class="btn btn-primary form-control">Submit</button>
+                                <button id="submitColorShades" onclick="submitColorShades()" class="btn btn-primary form-control">Submit</button>
                             </div>
                         </div>`;
                 showInput.html(html);
@@ -106,15 +104,13 @@ $(document).ready(function(){
     });
 });
 
-$('#showInput').ready(function(){
-    $('#submitColorShades').on('click',function(){
-        console.log('hey');
-        // var colorName = $('#colorName option:selected').val();
-        // console.log('colorName : ', colorName);
-        // var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors/'+colorName);
-        // var colorShadesName = $('#colorShadesName').val();
-        // var colorShadesCode = $('#colorShadesCode').val();
-        // conosle.log('shades: ',ref.child('shades'));
-        // var newRef = ref.child('shades').child(colorShadesName).set(colorShadesCode);
-    });
-});
+var submitColorShades = function(){
+    console.log('hey');
+    var colorName = $('#colorName option:selected').val();
+    console.log('colorName : ', colorName);
+    var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors/'+colorName);
+    var colorShadesName = $('#colorShadesName').val();
+    var colorShadesCode = $('#colorShadesCode').val();
+    console.log('shades: ',ref.child('shades'));
+    var newRef = ref.child('shades').child(colorShadesName).set(colorShadesCode);
+}
