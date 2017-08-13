@@ -14,13 +14,13 @@ var getCookie = function(cname) {
     return "";
 }
 
-window.onload = function(e){ 
-    var username = getCookie('username');
-    console.log(username); 
-    if(username == ''){
-        window.location.replace(window.location.origin + "/colors/index.html");
-    }
- }
+// window.onload = function(e){ 
+//     var username = getCookie('username');
+//     console.log(username); 
+//     if(username == ''){
+//         window.location.replace(window.location.origin + "/colors/index.html");
+//     }
+//  }
 
 //$(document).ready(function(e){
 //    console.log("Cok : ",getCookie('username'));
@@ -46,7 +46,18 @@ var submitColor = function(){
     var obj = {
          'code' : colorCode
     }
-    var newRef = ref.child(colorName).set(obj);
+    
+    ref.child(colorName).once('value',function(snapshot){
+        var exists = (snapshot.val() !== null);
+        if(!exists){
+            ref.child(colorName).set(obj);
+        }
+        else {
+            $('#dupError').html(`<div class="alert alert-danger">
+                                    <strong>Info!</strong> This Color Already Exist.
+                                </div>`);
+        }
+    });
 }
 
 $(document).ready(function(){
@@ -63,6 +74,9 @@ $(document).ready(function(){
                         </div>
                         <div class="col-xs-offset-4 col-xs-3" style="margin-top:20px;">
                             <button id="submitColor" onclick="submitColor()" class="btn btn-primary form-control">Submit</button>
+                        </div>
+                        <div class="col-xs-7" style="margin-top:20px;" id="dupError">
+                        
                         </div>
                     </div>`;
         showInput.html(html);
@@ -98,6 +112,9 @@ $(document).ready(function(){
                             <div class="col-xs-offset-4 col-xs-3" style="margin-top:20px;">
                                 <button id="submitColorShades" onclick="submitColorShades()" class="btn btn-primary form-control">Submit</button>
                             </div>
+                            <div class="col-xs-7" style="margin-top:20px;" id="dupError">
+                            
+                            </div>
                         </div>`;
                 showInput.html(html);
         });
@@ -110,7 +127,17 @@ var submitColorShades = function(){
     console.log('colorName : ', colorName);
     var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors/'+colorName);
     var colorShadesName = $('#colorShadesName').val();
-    var colorShadesCode = $('#colorShadesCode').val();
-    console.log('shades: ',ref.child('shades'));
-    var newRef = ref.child('shades').child(colorShadesName).set(colorShadesCode);
+    ref.child('shades').child(colorShadesName).once('value',function(snapshot){
+        var exists = (snapshot.val() !== null);
+        if(!exists){
+            var colorShadesCode = $('#colorShadesCode').val();
+            ref.child('shades').child(colorShadesName).set(colorShadesCode);
+        }
+        else {
+            $('#dupError').html(`<div class="alert alert-danger">
+                                    <strong>Info!</strong> This Color Already Exist.
+                                </div>`);
+        }
+    })
+    
 }
