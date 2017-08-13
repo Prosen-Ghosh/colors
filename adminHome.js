@@ -71,16 +71,6 @@ $(document).ready(function(){
     });
 });
 
-var getColorNames = async function(){
-    var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors');
-    var obj = {};
-    await ref.on('value',function(snap) {
-        obj = snap.val();
-        console.log('obj: ',obj);
-    });
-    console.log('After obj');
-    return obj;
-}
 $(document).ready(function(){
     $('#addNewColorShades').on('click',function(){
         var showInput = $('#showInput');
@@ -101,17 +91,27 @@ $(document).ready(function(){
                             </div>
                             <div class="col-xs-7">
                                 <label for="Color Name">Color Shades Name</label>
-                                <input class="form-control" id="colorName" type="text">
+                                <input class="form-control" id="colorShadesName" type="text">
                             </div>
                             <div class="col-xs-7">
                                 <label for="Color Code">Color Shades Code</label>
-                                <input class="form-control" id="colorCode" type="text">
+                                <input class="form-control" id="colorShadesCode" type="text">
                             </div>
                             <div class="col-xs-offset-4 col-xs-3" style="margin-top:20px;">
-                                <button id="submitColor" class="btn btn-primary form-control">Submit</button>
+                                <button id="submitColorShades" class="btn btn-primary form-control">Submit</button>
                             </div>
                         </div>`;
                 showInput.html(html);
         });
+    });
+});
+
+$(document).ready(function(){
+    $('#submitColorShades').on('click',function(){
+        var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors');
+        var colorName = $('#colorName').val();
+        var colorShadesName = $('#colorShadesName').val();
+        var colorShadesCode = $('#colorShadesCode').val();
+        var newRef = ref.child(colorName).child('shades').child(colorShadesName).set(colorShadesCode);
     });
 });
