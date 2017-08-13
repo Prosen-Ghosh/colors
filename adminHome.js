@@ -85,35 +85,33 @@ $(document).ready(function(){
     $('#addNewColorShades').on('click',function(){
         var showInput = $('#showInput');
         var objects  = {};
-        getColorNames().then(val => {
-            objects = val;
-            console.log('objects',objects);
-        });
         var options = '';
-        for(var key in objects){
-            options += '<option value="'+key+'">'+key+'</option>';
-            console.log('key : ',key);
-        }
-        console.log("After Key");
-        var html = `<div class="col-md-7">
-                        <div class="col-xs-7">
-                            <label for="Color Name">Color Name</label>
-                            <select class="form-control" id="colorName">
-                                ${options}
-                            </select>
-                        </div>
-                        <div class="col-xs-7">
-                            <label for="Color Name">Color Shades Name</label>
-                            <input class="form-control" id="colorName" type="text">
-                        </div>
-                        <div class="col-xs-7">
-                            <label for="Color Code">Color Shades Code</label>
-                            <input class="form-control" id="colorCode" type="text">
-                        </div>
-                        <div class="col-xs-offset-4 col-xs-3" style="margin-top:20px;">
-                            <button id="submitColor" class="btn btn-primary form-control">Submit</button>
-                        </div>
-                    </div>`;
-        showInput.html(html);
+        var ref = new Firebase('https://colors-a8c0c.firebaseio.com/Colors');
+        await ref.on('value',function(snap) {
+            objects = snap.val();
+            for(var key in objects){
+                options += '<option value="'+key+'">'+key+'</option>';
+            }
+            var html = `<div class="col-md-7">
+                            <div class="col-xs-7">
+                                <label for="Color Name">Color Name</label>
+                                <select class="form-control" id="colorName">
+                                    ${options}
+                                </select>
+                            </div>
+                            <div class="col-xs-7">
+                                <label for="Color Name">Color Shades Name</label>
+                                <input class="form-control" id="colorName" type="text">
+                            </div>
+                            <div class="col-xs-7">
+                                <label for="Color Code">Color Shades Code</label>
+                                <input class="form-control" id="colorCode" type="text">
+                            </div>
+                            <div class="col-xs-offset-4 col-xs-3" style="margin-top:20px;">
+                                <button id="submitColor" class="btn btn-primary form-control">Submit</button>
+                            </div>
+                        </div>`;
+                showInput.html(html);
+        });
     });
 });
